@@ -1,0 +1,60 @@
+# 如果有的功能无法使用，可以考虑
+# echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
+# 然后重新yabai --load-sa
+
+# 平铺or浮动
+yabai -m config layout bsp
+# 重写桌面2布局
+# yabai -m config --space 2 layout float
+
+# 填充和间隙
+yabai -m config top_padding    0
+yabai -m config bottom_padding 0
+yabai -m config left_padding   5
+yabai -m config right_padding  5
+yabai -m config window_gap     3
+
+# 自动平衡个窗口空间占比
+yabai -m config auto_balance on
+# 禁用自动平衡后，按照分割比例定义创建的新窗口占用的空间
+yabai -m config split_ratio 0.5
+
+# 鼠标支持
+# 当把一个窗口拖到另一个窗口中心（50%）的位置，触发交换位置操作
+# 当拖到边缘区域（25%）的位置，触发这两个窗口相对位置操作
+# 按住修饰键可以单击窗口上的任意位置来移动窗口和调整大小，默认是fn
+# 焦点跟随鼠标，默认是关闭的
+# yabai -m config focus_follows_mouse autofocus
+# 鼠标跟随焦点，默认是关闭的
+# yabai -m config mouse_follows_focus on
+
+# 窗口修改
+# 显式窗口阴影，on/off/float
+yabai -m config window_shadow float
+# 窗口不透明度，默认关闭
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.9
+
+# 状态栏
+# 可以彻底关闭菜单栏
+# yabai -m config menubar_opacity 0.0
+# 将自定义栏与 yabai 提供的填充功能off集成？
+# yabai -m config external_bar main:10:0
+# yabai -m config external_bar all:38:5
+
+# 和sketchbar联动
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+
+# 是否管理窗口
+yabai -m rule --add app="^(System Settings|系统设置)$" manage=off
+yabai -m rule --add app="^(Music|音乐)$" manage=off
+yabai -m rule --add app="^(Finder|访达)$" manage=off
+yabai -m rule --add app="^(Wechat|微信)$" manage=off
+yabai -m rule --add app="^(活动监视器)$" manage=off
+yabai -m rule --add app="^(Quantumult X)$" manage=off
+yabai -m rule --add app="^(腾讯会议)$" manage=off
+yabai -m rule --add app="^(Photo Booth)$" manage=off
+
+# 启动边框
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &

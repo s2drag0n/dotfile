@@ -1,0 +1,32 @@
+# 打开终端
+alt - return : open /Applications/WezTerm.app
+
+# 窗口聚焦
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+
+# 创建新space并将当前窗口移动到新space
+shift + alt - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
+# 聚焦桌面
+alt - x : yabai -m space --focus recent
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+
+# 将当前窗口移动到桌面
+shift + alt - z : yabai -m window --space next; yabai -m space --focus next
+shift + alt - 2 : yabai -m window --space  2 --focus
+shift + alt - 3 : yabai -m window --space  3 --focus
+shift + alt - 1 : yabai -m window --space  1 --focus
+shift + alt - 4 : yabai -m window --space  4 --focus
+shift + alt - 5 : yabai -m window --space  5 --focus
+shift + alt - 6 : yabai -m window --space  6 --focus
