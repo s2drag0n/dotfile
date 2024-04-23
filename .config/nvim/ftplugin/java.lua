@@ -1,13 +1,14 @@
+local home = os.getenv 'HOME'
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local jdt_install_path = "~/.local/share/nvim/mason/packages/jdtls/"
+local jdt_install_path = home .. "/.local/share/nvim/mason/packages/jdtls/"
 
 -- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
-local workspace_dir = "$HOME/document/work/java/code" .. project_name
+local workspace_dir = home .. "/document/work/java/code" .. project_name
 
 -- 自动克隆 java-debug 仓库并设置初始化选项
-local java_debug_path = vim.fn.expand "$HOME/java-debug"
+local java_debug_path = vim.fn.expand("$HOME/java-debug")
 
 if vim.fn.isdirectory(java_debug_path) == 0 then
   print "Cloning java-debug repository..."
@@ -16,7 +17,7 @@ if vim.fn.isdirectory(java_debug_path) == 0 then
 end
 
 local bundles_1 = {
-  vim.fn.glob(java_debug_path .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", true),
+  vim.fn.glob(java_debug_path .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.52.0.jar", true),
 }
 
 -- 自动克隆 vscode-java-test 仓库并构建插件
@@ -31,7 +32,7 @@ if vim.fn.isdirectory(vscode_java_test_path) == 0 then
   os.execute("cd " .. vscode_java_test_path .. "npm run build-plugin")
 end
 
-vim.list_extend(bundles_1, vim.split(vim.fn.glob((vscode_java_test_path .. "/server/*.jar"), true), "\n"))
+vim.list_extend(bundles_1, vim.split(vim.fn.glob((vscode_java_test_path .. "/server/*.jar")), "\n"))
 
 local config = {
   -- The command that starts the language server
@@ -72,7 +73,7 @@ local config = {
   settings = {
     java = {
       signatureHelp = { enabled = true },
-      extendedClientCapabilities = "extendedClientCapabilities",
+      extendedClientCapabilities = 'extendedClientCapabilities',
       maven = {
         downloadSources = true,
       },
@@ -92,6 +93,7 @@ local config = {
       },
     },
   },
+
 
   init_options = {
     bundles = bundles_1,

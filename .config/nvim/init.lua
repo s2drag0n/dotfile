@@ -32,16 +32,22 @@ spec "user.alpha"
 spec "user.project"
 spec "user.indent"
 spec "user.toggleterm"
+spec "user.jdtls"
+spec "user.dap"
+
 spec "user.extras.oil"
 spec "user.extras.ufo"
+
 -- code runner for lua, ts, python, js, etc
-spec "user.extras.lab"
+-- spec "user.extras.lab"
+
 spec "user.extras.cellular-automaton"
 spec "user.extras.eyeliner"
 spec "user.extras.gitlinker"
 spec "user.extras.tabnine"
 spec "user.extras.fidget"
 spec "user.extras.bqf"
+
 -- colorizer
 -- dressing
 -- modicator

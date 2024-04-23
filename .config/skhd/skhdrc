@@ -1,5 +1,5 @@
 # 打开终端
-alt - return : open /Applications/WezTerm.app
+cmd - return : open /Applications/WezTerm.app
 
 # 窗口聚焦
 alt - h : yabai -m window --focus west

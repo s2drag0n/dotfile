@@ -12,6 +12,10 @@ function M.config()
       additional_vim_regex_highlighting = false,
     },
     indent = { enable = true },
+    modules = {},
+    sync_install = true,
+    auto_install = true,
+    ignore_install = {},
   }
 end
 

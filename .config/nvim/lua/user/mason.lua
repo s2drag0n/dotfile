@@ -5,7 +5,6 @@ local M = {
   },
 }
 
-
 function M.config()
   local servers = {
     "lua_ls",
@@ -16,6 +15,7 @@ function M.config()
     "bashls",
     "jsonls",
     "clangd",
+    "jdtls",
   }
 
   require("mason").setup {

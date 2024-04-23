@@ -42,13 +42,13 @@ function M.config()
     '<Esc><Cmd>lua require("jdtls").extract_method(true)<CR>',
     { noremap = true, silent = true }
   )
-  -- 测试相关
-  local wk = require "which-key"
-  local jdtls_mappings = {
-    ["<leader>df"] = { "<Cmd>lua require('jdtls').test_class()<CR>", "Test Class" },
-    ["<leader>dn"] = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "Test Nearest Method" },
-  }
-  wk.register(jdtls_mappings)
+  -- -- 测试相关
+  -- local wk = require "which-key"
+  -- local jdtls_mappings = {
+  --   ["<leader>df"] = { "<Cmd>lua require('jdtls').test_class()<CR>", "Test Class" },
+  --   ["<leader>dn"] = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "Test Nearest Method" },
+  -- }
+  -- wk.register(jdtls_mappings)
 end
 
 return M
