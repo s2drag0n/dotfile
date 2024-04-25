@@ -112,7 +112,7 @@ function M.config()
       format = function(entry, vim_item)
         vim_item.kind = icons.kind[vim_item.kind]
         vim_item.menu = ({
-          nvim_lsp = "",
+          nvim_lsp = "[lsp]",
           nvim_lua = "",
           luasnip = "",
           buffer = "",
@@ -135,11 +135,11 @@ function M.config()
     },
     sources = {
       -- { name = "copilot" },
+      { name = "buffer" },
       { name = "nvim_lsp" },
       { name = "luasnip" },
-      { name = "cmp_tabnine" },
+      -- { name = "cmp_tabnine" },
       { name = "nvim_lua" },
-      { name = "buffer" },
       { name = "path" },
       { name = "calc" },
       { name = "emoji" },

@@ -15,15 +15,19 @@ function M.config()
     l = { name = "LSP" },
     p = { name = "Plugins" },
     t = { name = "Test" },
-    a = {
-      name = "Tab",
-      n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
-      N = { "<cmd>tabnew %<cr>", "New Tab" },
-      o = { "<cmd>tabonly<cr>", "Only" },
-      h = { "<cmd>-tabmove<cr>", "Move Left" },
-      l = { "<cmd>+tabmove<cr>", "Move Right" },
-    },
+    -- a = {
+    --   name = "Tab",
+    --   n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
+    --   N = { "<cmd>tabnew %<cr>", "New Tab" },
+    --   o = { "<cmd>tabonly<cr>", "Only" },
+    --   h = { "<cmd>-tabmove<cr>", "Move Left" },
+    --   l = { "<cmd>+tabmove<cr>", "Move Right" },
+    -- },
     T = { name = "Treesitter" },
+    s = {
+      "<cmd>:w<CR><cmd>lua vim.lsp.buf.format({insertSpaces = true,async = true, filter = function(client) return client.name ~= 'typescript-tools' end, tabSize = 4})<cr>",
+      "Save&Format",
+    },
   }
 
   local which_key = require "which-key"
@@ -59,6 +63,7 @@ function M.config()
     },
   }
 
+  vim.o.timeoutlen = 300
   local opts = {
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
