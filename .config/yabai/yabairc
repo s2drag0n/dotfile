@@ -1,6 +1,7 @@
-# 如果有的功能无法使用，可以考虑
-# echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
-# 然后重新yabai --load-sa
+sudo yabai --load-sa
+
+# ------------------------------------------------fix trouble------------------------------------------------
+# yabai --stop-service && sudo yabai --uninstall-sa && echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai && sudo yabai --load-sa && yabai --start-service
 
 # 平铺or浮动
 yabai -m config layout bsp

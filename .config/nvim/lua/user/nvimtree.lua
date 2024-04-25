@@ -16,17 +16,18 @@ function M.config()
     sync_root_with_cwd = true,
     view = {
       relativenumber = true,
+      width = 40,
     },
     renderer = {
       add_trailing = false,
-      group_empty = false,
+      group_empty = true,
       highlight_git = false,
       full_name = false,
       highlight_opened_files = "none",
       root_folder_label = ":t",
       indent_width = 2,
       indent_markers = {
-        enable = false,
+        enable = true,
         inline_arrows = true,
         icons = {
           corner = "└",
@@ -76,7 +77,7 @@ function M.config()
 
     diagnostics = {
       enable = true,
-      show_on_dirs = false,
+      show_on_dirs = true,
       show_on_open_dirs = true,
       debounce_delay = 50,
       severity = {
