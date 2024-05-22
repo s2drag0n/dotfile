@@ -57,6 +57,7 @@ yabai -m rule --add app="^(Quantumult X)$" manage=off
 yabai -m rule --add app="^(腾讯会议)$" manage=off
 yabai -m rule --add app="^(Photo Booth)$" manage=off
 yabai -m rule --add app="^(QQ)$" manage=off
+yabai -m rule --add app="IntelliJ IDEA" manage=off
 
 # 启动边框
 borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
